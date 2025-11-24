@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Responsive Portfolio | Student Name</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===========================================================
+   RESET + BASE STYLES
+   =========================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f5f7fa;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* Colors */
+:root {
+  --primary: #0066ff;
+  --secondary: #00bbff;
+  --dark: #111;
+  --light: #fff;
+  --gray: #f0f0f0;
+}
+
+/* Global spacing */
+section {
+  padding: 4rem 7vw;
+}
+
+/* ===========================================================
+   HEADER — FLEXBOX
+   =========================================================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 7vw;
+  background: var(--light);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.08);
+}
+
+.logo {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+nav a {
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--secondary);
+  transform: translateY(-3px);
+}
+
+/* ===========================================================
+   HERO SECTION — FLEXBOX
+   =========================================================== */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+}
+
+.hero img {
+  width: 40vw;
+  max-width: 260px;
+  border-radius: 50%;
+  border: 4px solid var(--primary);
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  animation: fade-up 1.5s ease forwards;
+}
+
+.hero h1 span {
+  animation: colorShift 3s infinite alternate;
+}
+
+.hero p {
+  max-width: 40rem;
+  font-size: 1.15rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1.3rem;
+  background: var(--primary);
+  padding: 1rem 2rem;
+  color: var(--light);
+  border-radius: 0.4rem;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--secondary);
+  transform: scale(1.06);
+}
+
+/* HERO ANIMATIONS */
+@keyframes colorShift {
+  0% { color: var(--primary); }
+  100% { color: var(--secondary); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(35px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===========================================================
+   ABOUT SECTION
+   =========================================================== */
+.about {
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.3rem;
+}
+
+/* ===========================================================
+   SKILLS — CSS GRID
+   =========================================================== */
+.skills {
+  text-align: center;
+}
+
+.skills h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.skill-card {
+  background: var(--light);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 2rem;
+  border-radius: 0.4rem;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ===========================================================
+   PROJECTS — CSS GRID
+   =========================================================== */
+.projects {
+  text-align: center;
+}
+
+.projects h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: var(--gray);
+  padding: 2rem;
+  border-radius: 0.4rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* ===========================================================
+   CONTACT SECTION
+   =========================================================== */
+.contact {
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+form {
+  max-width: 40rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input, textarea {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+}
+
+button {
+  padding: 1rem 2rem;
+  background: var(--primary);
+  color: var(--light);
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+button:hover {
+  background: var(--secondary);
+  transform: scale(1.05);
+}
+
+/* ===========================================================
+   FOOTER
+   =========================================================== */
+footer {
+  background: var(--dark);
+  color: var(--light);
+  padding: 2rem;
+  text-align: center;
+}
+
+/* ===========================================================
+   RESPONSIVE MEDIA QUERIES
+   =========================================================== */
+
+/* Tablet */
+@media (min-width: 700px) {
+  .hero {
+    flex-direction: row;
+    text-align: left;
+  }
+  .hero img {
+    width: 25vw;
+  }
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1000px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- ===========================================================
+     HEADER
+     =========================================================== -->
+<header>
+  <div class="logo">MyPortfolio</div>
+  <nav>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ===========================================================
+     HERO SECTION
+     =========================================================== -->
+<section class="hero" id="hero">
+  <div class="hero-text">
+    <h1>Hello, I'm <span>Yashveer Singh</span><br>Full Stack Developer</h1>
+    <p>I design and build responsive, interactive, and modern web applications using clean code, strong UI/UX principles, and scalable frontend structures.</p>
+    <a class="btn" href="#projects">View My Work</a>
+  </div>
+
+  <!-- Placeholder Image -->
+  <img src="https://via.placeholder.com/260" alt="Profile image">
+</section>
+
+<!-- ===========================================================
+     ABOUT SECTION
+     =========================================================== -->
+<section class="about" id="about">
+  <h2>About Me</h2>
+  <p>I am a dedicated developer passionate about crafting visually appealing, responsive, and functional interfaces. My focus is on combining structured layouts, animations, and modern CSS to create seamless user experiences.</p>
+</section>
+
+<!-- ===========================================================
+     SKILLS SECTION
+     =========================================================== -->
+<section class="skills" id="skills">
+  <h2>Skills</h2>
+
+  <div class="skills-grid">
+    <div class="skill-card">HTML5</div>
+    <div class="skill-card">CSS3 / Flexbox / Grid</div>
+    <div class="skill-card">JavaScript (ES6)</div>
+    <div class="skill-card">React</div>
+    <div class="skill-card">Node.js</div>
+    <div class="skill-card">Git & GitHub</div>
+    <div class="skill-card">UI/UX Design</div>
+    <div class="skill-card">API Integration</div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     PROJECTS SECTION
+     =========================================================== -->
+<section class="projects" id="projects">
+  <h2>Projects</h2>
+
+  <div class="project-grid">
+    <div class="project-card">Portfolio Website</div>
+    <div class="project-card">E-Commerce Store</div>
+    <div class="project-card">Weather App</div>
+    <div class="project-card">Blog Platform</div>
+    <div class="project-card">Business Landing Page</div>
+    <div class="project-card">Dashboard UI</div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     CONTACT SECTION
+     =========================================================== -->
+<section class="contact" id="contact">
+  <h2>Contact Me</h2>
+  <p>Fill out the form below to get in touch.</p>
+
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<!-- ===========================================================
+     FOOTER
+     =========================================================== -->
+<footer>
+  © 2025 Yashveer Singh — All Rights Reserved
+</footer>
+
+</body>
+</html>
